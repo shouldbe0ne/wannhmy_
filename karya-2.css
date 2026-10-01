@@ -1,0 +1,459 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #03110d;
+    color: #eef8f2;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.karya-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 20% 10%,
+            rgba(73, 255, 166, 0.18),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 80% 20%,
+            rgba(22, 179, 118, 0.16),
+            transparent 38%
+        ),
+        radial-gradient(
+            ellipse at 50% 70%,
+            rgba(10, 100, 72, 0.14),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #020a08 0%,
+            #03150f 40%,
+            #051b14 70%,
+            #020906 100%
+        );
+}
+
+
+/* =========================
+   AURORA
+========================= */
+
+.karya-page::before {
+    content: "";
+    position: fixed;
+
+    width: 140%;
+    height: 520px;
+
+    top: -80px;
+    left: -20%;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 5%,
+            rgba(61, 255, 156, 0.05) 20%,
+            rgba(61, 255, 156, 0.5) 38%,
+            rgba(129, 255, 194, 0.28) 48%,
+            rgba(12, 193, 117, 0.42) 60%,
+            rgba(34, 255, 157, 0.08) 75%,
+            transparent 90%
+        );
+
+    filter: blur(55px);
+
+    transform:
+        rotate(-8deg)
+        skewX(-10deg);
+
+    opacity: .9;
+
+    animation: auroraMove 10s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+/* aurora lapisan kedua */
+
+.karya-page::after {
+    content: "";
+    position: fixed;
+
+    width: 120%;
+    height: 330px;
+
+    top: 140px;
+    left: -10%;
+
+    background:
+        linear-gradient(
+            100deg,
+            transparent 10%,
+            rgba(27, 170, 103, .05) 25%,
+            rgba(98, 255, 181, .22) 42%,
+            rgba(13, 215, 126, .18) 60%,
+            transparent 80%
+        );
+
+    filter: blur(65px);
+
+    transform: rotate(5deg);
+
+    opacity: .65;
+
+    animation: auroraMove2 13s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   AURORA ANIMATION
+========================= */
+
+@keyframes auroraMove {
+
+    0% {
+        transform:
+            translateX(-3%)
+            translateY(0)
+            rotate(-8deg)
+            skewX(-10deg);
+
+        opacity: .65;
+    }
+
+    100% {
+        transform:
+            translateX(5%)
+            translateY(40px)
+            rotate(-4deg)
+            skewX(-5deg);
+
+        opacity: 1;
+    }
+}
+
+
+@keyframes auroraMove2 {
+
+    0% {
+        transform:
+            translateX(5%)
+            translateY(0)
+            rotate(5deg);
+    }
+
+    100% {
+        transform:
+            translateX(-5%)
+            translateY(-25px)
+            rotate(2deg);
+    }
+}
+
+
+/* =========================
+   STAR FIELD
+========================= */
+
+.stars {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle at 13% 18%,
+            rgba(255,255,255,.75) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 28% 35%,
+            rgba(255,255,255,.45) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 44% 12%,
+            rgba(255,255,255,.6) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 62% 29%,
+            rgba(255,255,255,.5) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 74% 10%,
+            rgba(255,255,255,.7) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 87% 31%,
+            rgba(255,255,255,.4) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 93% 17%,
+            rgba(255,255,255,.55) 0 1px,
+            transparent 1.5px
+        );
+
+    opacity: .65;
+}
+
+
+/* =========================
+   CONTENT LAYER
+========================= */
+
+.topbar,
+.karya-header,
+.isi-karya,
+.karya-footer {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px clamp(25px, 7vw, 90px);
+}
+
+
+.back {
+    color: #dff9ea;
+    text-decoration: none;
+
+    font-size: 11px;
+    letter-spacing: .08em;
+
+    opacity: .55;
+
+    transition: all .25s ease;
+}
+
+
+.back:hover {
+    opacity: 1;
+    color: #7dffc2;
+}
+
+
+.logo {
+    font-size: 13px;
+    letter-spacing: .28em;
+
+    color: #e8fff2;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.karya-header {
+    max-width: 900px;
+    margin: 0 auto;
+
+    padding:
+        clamp(110px, 16vh, 180px)
+        25px
+        90px;
+}
+
+
+.jenis {
+    font-size: 9px;
+
+    letter-spacing: .28em;
+
+    color: #72eeb0;
+
+    margin-bottom: 22px;
+}
+
+
+.karya-header h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(44px, 7vw, 88px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: -.04em;
+
+    color: #f5fff8;
+
+    text-shadow:
+        0 0 20px rgba(86, 255, 173, .08);
+}
+
+
+.tanggal {
+    margin-top: 27px;
+
+    font-size: 10px;
+
+    color: #b5d8c4;
+
+    opacity: .7;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.isi-karya {
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    padding:
+        0 25px
+        140px;
+}
+
+
+.isi-karya p {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(18px, 2vw, 21px);
+
+    line-height: 1.95;
+
+    color: #dcebe2;
+
+    margin-bottom: 40px;
+
+    text-shadow:
+        0 2px 15px rgba(0,0,0,.3);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.karya-footer {
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    padding: 25px;
+
+    border-top:
+        1px solid rgba(117, 255, 184, .13);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 10px;
+}
+
+
+.karya-footer a {
+    color: #8ce7b7;
+
+    text-decoration: none;
+
+    transition: all .25s ease;
+}
+
+
+.karya-footer a:hover {
+    color: #caffdf;
+    opacity: .7;
+}
+
+
+.karya-footer span {
+    color: #7ea88e;
+
+    opacity: .7;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .karya-page::before {
+        height: 420px;
+        top: -40px;
+        filter: blur(45px);
+    }
+
+    .karya-page::after {
+        height: 260px;
+        top: 130px;
+        filter: blur(55px);
+    }
+
+    .topbar {
+        padding: 24px 22px;
+    }
+
+    .karya-header {
+        padding:
+            100px 22px
+            65px;
+    }
+
+    .karya-header h1 {
+        font-size: clamp(40px, 12vw, 58px);
+    }
+
+    .isi-karya {
+        padding:
+            0 22px
+            105px;
+    }
+
+    .isi-karya p {
+        font-size: 18px;
+
+        line-height: 1.85;
+
+        margin-bottom: 33px;
+    }
+
+    .karya-footer {
+        margin: 0 22px;
+
+        padding: 22px 0;
+    }
+}

@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fffaf8;
+    color: #523c3c;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.karya-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 12%,
+            rgba(255, 190, 202, 0.42),
+            transparent 30%
+        ),
+        radial-gradient(
+            ellipse at 85% 20%,
+            rgba(255, 218, 184, 0.40),
+            transparent 34%
+        ),
+        radial-gradient(
+            ellipse at 50% 75%,
+            rgba(255, 207, 220, 0.28),
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #fffafa 28%,
+            #fff1f3 65%,
+            #ffe8ec 100%
+        );
+}
+
+
+/* =========================
+   ROMANTIC GLOW
+========================= */
+
+.karya-page::before {
+    content: "";
+
+    position: fixed;
+
+    width: 700px;
+    height: 700px;
+
+    top: -280px;
+    right: -180px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 174, 194, 0.28),
+            transparent 68%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+
+.karya-page::after {
+    content: "";
+
+    position: fixed;
+
+    width: 600px;
+    height: 600px;
+
+    bottom: -280px;
+    left: -200px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 202, 181, 0.24),
+            transparent 68%
+        );
+
+    filter: blur(25px);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   ORNAMEN ASMARA
+========================= */
+
+.romance {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    overflow: hidden;
+}
+
+
+/* hati besar yang sangat samar */
+
+.romance::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: 9%;
+    right: 9%;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 150px;
+
+    font-weight: 400;
+
+    color: rgba(211, 91, 117, 0.055);
+
+    transform: rotate(-12deg);
+}
+
+
+/* hati kecil */
+
+.romance::after {
+    content: "♡";
+
+    position: absolute;
+
+    bottom: 14%;
+    left: 8%;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 85px;
+
+    color: rgba(211, 91, 117, 0.045);
+
+    transform: rotate(14deg);
+}
+
+
+/* =========================
+   CONTENT LAYER
+========================= */
+
+.topbar,
+.karya-header,
+.isi-karya,
+.karya-footer {
+    position: relative;
+
+    z-index: 3;
+}
+
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding:
+        30px
+        clamp(25px, 7vw, 90px);
+}
+
+
+.back {
+    color: #70575b;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    letter-spacing: .08em;
+
+    opacity: .55;
+
+    transition: all .25s ease;
+}
+
+
+.back:hover {
+    opacity: 1;
+
+    color: #c25d78;
+}
+
+
+.logo {
+    font-size: 13px;
+
+    letter-spacing: .28em;
+
+    color: #795860;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.karya-header {
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding:
+        clamp(110px, 16vh, 180px)
+        25px
+        90px;
+}
+
+
+.jenis {
+    font-size: 9px;
+
+    letter-spacing: .3em;
+
+    color: #c66a83;
+
+    margin-bottom: 22px;
+}
+
+
+.karya-header h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size:
+        clamp(44px, 7vw, 88px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: -.045em;
+
+    color: #593c43;
+
+    text-shadow:
+        0 5px 25px rgba(184, 85, 110, .08);
+}
+
+
+.tanggal {
+    margin-top: 27px;
+
+    font-size: 10px;
+
+    color: #a47c85;
+
+    opacity: .7;
+}
+
+
+/* =========================
+   ISI KARYA
+========================= */
+
+.isi-karya {
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    padding:
+        0 25px
+        140px;
+}
+
+
+.isi-karya p {
+    font-family: "Playfair Display", serif;
+
+    font-size:
+        clamp(18px, 2vw, 21px);
+
+    line-height: 1.95;
+
+    color: #60464d;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   KUTIPAN / HIGHLIGHT
+========================= */
+
+.isi-karya .highlight {
+    margin: 70px 0;
+
+    padding-left: 25px;
+
+    border-left:
+        1px solid rgba(198, 106, 131, .35);
+
+    color: #a6536d;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.karya-footer {
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    padding: 25px;
+
+    border-top:
+        1px solid rgba(198, 106, 131, .16);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 10px;
+}
+
+
+.karya-footer a {
+    color: #b55d76;
+
+    text-decoration: none;
+
+    transition: all .25s ease;
+}
+
+
+.karya-footer a:hover {
+    color: #8f3e57;
+
+    opacity: .7;
+}
+
+
+.karya-footer span {
+    color: #a9858d;
+
+    opacity: .65;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .romance::before {
+        font-size: 100px;
+
+        top: 10%;
+
+        right: 4%;
+    }
+
+    .romance::after {
+        font-size: 60px;
+
+        bottom: 12%;
+
+        left: 3%;
+    }
+
+    .topbar {
+        padding: 24px 22px;
+    }
+
+    .karya-header {
+        padding:
+            100px 22px
+            65px;
+    }
+
+    .karya-header h1 {
+        font-size:
+            clamp(40px, 12vw, 58px);
+    }
+
+    .isi-karya {
+        padding:
+            0 22px
+            105px;
+    }
+
+    .isi-karya p {
+        font-size: 18px;
+
+        line-height: 1.85;
+
+        margin-bottom: 33px;
+    }
+
+    .isi-karya .highlight {
+        margin: 55px 0;
+
+        padding-left: 20px;
+    }
+
+    .karya-footer {
+        margin: 0 22px;
+
+        padding: 22px 0;
+    }
+}

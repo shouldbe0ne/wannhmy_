@@ -1,0 +1,363 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #020817;
+    color: #edf5ff;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: hidden;
+}
+
+.karya-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 45%,
+            rgba(44, 91, 170, .20),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(25, 66, 145, .20),
+            transparent 35%
+        ),
+        radial-gradient(
+            ellipse at 85% 15%,
+            rgba(67, 92, 180, .14),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #010511 0%,
+            #03102b 35%,
+            #061942 68%,
+            #020817 100%
+        );
+}
+
+/* MILKY WAY */
+.karya-page::before {
+    content: "";
+    position: fixed;
+    width: 150%;
+    height: 360px;
+    top: 20%;
+    left: -25%;
+
+    background:
+        linear-gradient(
+            115deg,
+            transparent 12%,
+            rgba(103, 146, 218, .04) 25%,
+            rgba(170, 197, 255, .14) 42%,
+            rgba(211, 225, 255, .20) 50%,
+            rgba(117, 153, 225, .12) 60%,
+            rgba(50, 91, 168, .04) 74%,
+            transparent 88%
+        );
+
+    filter: blur(38px);
+    transform: rotate(-14deg);
+    opacity: .85;
+    animation: milkyWay 18s ease-in-out infinite alternate;
+
+    pointer-events: none;
+}
+
+@keyframes milkyWay {
+    0% {
+        transform: translateX(-3%) rotate(-14deg);
+        opacity: .55;
+    }
+
+    100% {
+        transform: translateX(4%) translateY(25px) rotate(-10deg);
+        opacity: .95;
+    }
+}
+
+/* SECOND MILKY WAY LAYER */
+.karya-page::after {
+    content: "";
+    position: fixed;
+    width: 120%;
+    height: 220px;
+    top: 35%;
+    left: -10%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(180, 205, 255, .12),
+            transparent 65%
+        );
+
+    filter: blur(45px);
+    transform: rotate(-12deg);
+    opacity: .7;
+
+    pointer-events: none;
+}
+
+/* STARS */
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle at 8% 12%,
+            rgba(255,255,255,.85) 0 1px,
+            transparent 1.7px
+        ),
+        radial-gradient(
+            circle at 17% 34%,
+            rgba(255,255,255,.55) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 25% 17%,
+            rgba(205,225,255,.75) 0 1px,
+            transparent 1.6px
+        ),
+        radial-gradient(
+            circle at 33% 47%,
+            rgba(255,255,255,.45) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 41% 9%,
+            rgba(255,255,255,.8) 0 1px,
+            transparent 1.7px
+        ),
+        radial-gradient(
+            circle at 49% 27%,
+            rgba(210,228,255,.65) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 57% 14%,
+            rgba(255,255,255,.8) 0 1px,
+            transparent 1.7px
+        ),
+        radial-gradient(
+            circle at 64% 40%,
+            rgba(255,255,255,.5) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 72% 18%,
+            rgba(215,230,255,.8) 0 1px,
+            transparent 1.7px
+        ),
+        radial-gradient(
+            circle at 81% 31%,
+            rgba(255,255,255,.55) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 89% 11%,
+            rgba(255,255,255,.8) 0 1px,
+            transparent 1.7px
+        ),
+        radial-gradient(
+            circle at 94% 46%,
+            rgba(205,225,255,.6) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 12% 72%,
+            rgba(255,255,255,.45) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 30% 82%,
+            rgba(210,225,255,.5) 0 1px,
+            transparent 1.5px
+        ),
+        radial-gradient(
+            circle at 76% 76%,
+            rgba(255,255,255,.45) 0 1px,
+            transparent 1.5px
+        );
+
+    opacity: .72;
+    animation: starGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes starGlow {
+    from {
+        opacity: .52;
+    }
+
+    to {
+        opacity: .85;
+    }
+}
+
+/* CONTENT */
+.topbar,
+.karya-header,
+.isi-karya,
+.karya-footer {
+    position: relative;
+    z-index: 3;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px clamp(25px, 7vw, 90px);
+}
+
+.back {
+    color: #c8d9f7;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: .08em;
+    opacity: .6;
+    transition: .25s ease;
+}
+
+.back:hover {
+    opacity: 1;
+    color: #9dc2ff;
+}
+
+.logo {
+    font-size: 13px;
+    letter-spacing: .28em;
+    color: #dce9ff;
+}
+
+.karya-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(110px, 16vh, 180px) 25px 90px;
+}
+
+.jenis {
+    font-size: 9px;
+    letter-spacing: .28em;
+    color: #8eb6ff;
+    margin-bottom: 22px;
+}
+
+.karya-header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(44px, 7vw, 88px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -.04em;
+    color: #f1f6ff;
+
+    text-shadow:
+        0 0 25px rgba(130, 170, 255, .10);
+}
+
+.tanggal {
+    margin-top: 27px;
+    font-size: 10px;
+    color: #91a8cb;
+    opacity: .75;
+}
+
+.isi-karya {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 25px 140px;
+}
+
+.isi-karya p {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(18px, 2vw, 21px);
+    line-height: 1.95;
+    color: #d1dcf0;
+    margin-bottom: 40px;
+
+    text-shadow:
+        0 2px 15px rgba(0,0,0,.35);
+}
+
+.karya-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 25px;
+
+    border-top: 1px solid rgba(145, 180, 240, .14);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 10px;
+}
+
+.karya-footer a {
+    color: #91b8f4;
+    text-decoration: none;
+    transition: .25s ease;
+}
+
+.karya-footer a:hover {
+    color: #d4e5ff;
+}
+
+.karya-footer span {
+    color: #7187a9;
+    opacity: .7;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    .karya-page::before {
+        height: 280px;
+        filter: blur(32px);
+    }
+
+    .karya-page::after {
+        height: 180px;
+        filter: blur(40px);
+    }
+
+    .topbar {
+        padding: 24px 22px;
+    }
+
+    .karya-header {
+        padding: 100px 22px 65px;
+    }
+
+    .karya-header h1 {
+        font-size: clamp(40px, 12vw, 58px);
+    }
+
+    .isi-karya {
+        padding: 0 22px 105px;
+    }
+
+    .isi-karya p {
+        font-size: 18px;
+        line-height: 1.85;
+        margin-bottom: 33px;
+    }
+
+    .karya-footer {
+        margin: 0 22px;
+        padding: 22px 0;
+    }
+}
